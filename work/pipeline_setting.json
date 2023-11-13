@@ -1,0 +1,31 @@
+{
+    "development": true,
+    "continuous": true,
+    "channel": "CURRENT",
+    "photon": false,
+    "libraries": [
+        {
+            "notebook": {
+                "path": "/Repos/btison@redhat.com/db-cdc-poc/work/pipeline"
+            }
+        }
+    ],
+    "name": "test-pipeline",
+    "edition": "ADVANCED",
+    "clusters": [
+        {
+            "label": "default",
+            "num_workers": 0
+        }
+    ],
+    "configuration": {
+        "TOPIC": "globex.updates.public.customer",
+        "KAFKA_BROKER": "kafka-kafka-bootstrap-amqstreams.apps.btison.local.sandbox1938.opentlc.com:443",
+        "KAFKA_SECURITY_PROTOCOL": "SASL_SSL",
+        "KAFKA_SASL_MECHANISM": "SCRAM-SHA-512",
+        "KAFKA_CLIENT_ID": "admin",
+        "KAFKA_CLIENT_SECRET": "kafkaadmin"
+    },
+    "target": "cdc_test",
+    "data_sampling": false
+}
