@@ -134,7 +134,7 @@ def insert_snapshot(snapshot_df):
   conn = None
   try:
     # connect to the PostgreSQL server
-    print('Connecting to the PostgreSQL database...')
+    # print('Connecting to the PostgreSQL database...')
     postgresql_host = dbutils.secrets.get(scope = "postgresql", key = "host")
     postgresql_user = dbutils.secrets.get(scope = "postgresql", key = "username")
     postgresql_password = dbutils.secrets.get(scope = "postgresql", key = "password")
@@ -163,7 +163,7 @@ def insert_snapshot(snapshot_df):
   finally:
     if conn is not None:
       conn.close()
-      print('Database connection closed.')
+    #   print('Database connection closed.')
 
 # COMMAND ----------
 
@@ -199,7 +199,7 @@ def sendChangeEvent(producer, topic, event):
 
 # COMMAND ----------
 
-event_speed_factor = 10 # Send records to iot hub at <event_speed_factor> X real-time speed
+event_speed_factor = 250 # Send records to iot hub at <event_speed_factor> X real-time speed
 last_dt = None
 
 producer = createProducer()
@@ -232,7 +232,7 @@ for event in inventory_change:
            )
         
       # transmit to PostgreSQL
-      print('Inserting inventory snapshot for {0}'.format(snapshot_dt.strftime('%Y-%m-%d %H:%M:%S')))
+      # print('Inserting inventory snapshot for {0}'.format(snapshot_dt.strftime('%Y-%m-%d %H:%M:%S')))
       insert_snapshot(snapshot_pd)
       
       # remove snapshot date from inventory_snapshot_times
@@ -251,12 +251,10 @@ for event in inventory_change:
   if delay < 0: delay = 0
   
   # sleep for delay duration
-  #print('Sleep for {0} seconds'.format(delay))
-  #time.sleep(delay)
+  # print('Sleep for {0} seconds'.format(delay))
+  time.sleep(delay)
   
   # send transaction document
-
-  display(event)
   sendChangeEvent(producer, topic, event)
     
   # -----------------------------------------------------------------------
