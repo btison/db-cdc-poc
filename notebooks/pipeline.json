@@ -1,0 +1,31 @@
+{
+    "id": "a9fbf87a-ee6a-4357-b69b-db4c9d7d58fc",
+    "pipeline_type": "WORKSPACE",
+    "clusters": [
+        {
+            "label": "default",
+            "num_workers": 0
+        }
+    ],
+    "development": true,
+    "continuous": true,
+    "channel": "CURRENT",
+    "photon": false,
+    "libraries": [
+        {
+            "notebook": {
+                "path": "/Repos/btison@redhat.com/db-cdc-poc/notebooks/03_Data_Ingestion"
+            }
+        },
+        {
+            "notebook": {
+                "path": "/Repos/btison@redhat.com/db-cdc-poc/notebooks/04_Current_Inventory"
+            }
+        }
+    ],
+    "name": "POS_DLT",
+    "edition": "ADVANCED",
+    "storage": "/mnt/pos/dlt_pipeline",
+    "target": "pos_dlt",
+    "data_sampling": false
+}
