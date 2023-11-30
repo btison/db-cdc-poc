@@ -252,6 +252,7 @@ def raw_inventory_cdc_change():
 
 # COMMAND ----------
 
+# DBTITLE 1,Apply change data change events
 # example of cdc key
 # {"item_id":100005,"store_id":0} 
 
