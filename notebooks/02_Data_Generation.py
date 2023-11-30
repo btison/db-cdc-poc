@@ -139,7 +139,7 @@ def insert_snapshot(snapshot_df):
     postgresql_user = dbutils.secrets.get(scope = "postgresql", key = "username")
     postgresql_password = dbutils.secrets.get(scope = "postgresql", key = "password")
 
-    conn = psycopg2.connect(host=postgresql_host, database="retail", user=postgresql_user, password=postgresql_password)
+    conn = psycopg2.connect(host=postgresql_host, database="pos", user=postgresql_user, password=postgresql_password)
 		
     # create a cursor
     cur = conn.cursor()
