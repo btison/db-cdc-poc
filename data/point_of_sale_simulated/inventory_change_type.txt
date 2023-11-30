@@ -1,0 +1,6 @@
+change_type_id,change_type
+1,sale
+2,shrink
+3,restock
+4,bopis
+-1,snapshot
