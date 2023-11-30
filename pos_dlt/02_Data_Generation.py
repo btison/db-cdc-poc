@@ -199,6 +199,7 @@ def sendChangeEvent(producer, topic, event):
 
 # COMMAND ----------
 
+# DBTITLE 1,Load data
 event_speed_factor = 250 # Send records to iot hub at <event_speed_factor> X real-time speed
 last_dt = None
 
